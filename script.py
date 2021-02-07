@@ -1,7 +1,7 @@
 ###--- IMPORTS ---###
 import sys
 import textblob
-from textblob import TextBlob
+from textblob import TextBlob, Word
 
 '''
 TextBlob is a Python (2 and 3) library for processing textual data. 
@@ -17,14 +17,25 @@ txt = "I havv good spelling."
 ###--- FUNCTIONS ---###
 def correct_spelling():
     '''
-      Use the correct() method 
-      to attempt spelling correction.
+     Use the correct() method 
+     to attempt spelling correction.
     '''
     global txt
     usable = TextBlob(txt)
-    print(usable.correct())
+    return usable.correct()
+
+
+def check_spelling():
+    '''
+     .spellcheck() method that returns a list 
+     of (word, confidence) tuples with spelling suggestions.
+    '''
+    word = Word('fal;ibility')
+    print(word.spellcheck())
+    # [('fallibility', 1.0)]
 
 
 ###--- DRIVER CODE ---###
 if __name__ == "__main__":
-    correct_spelling()
+    # correct_spelling()
+    check_spelling()
