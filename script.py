@@ -1,5 +1,4 @@
 ###--- IMPORTS ---###
-import sys
 import textblob
 from textblob import TextBlob, Word
 
@@ -11,7 +10,7 @@ such as part-of-speech tagging, noun phrase extraction, sentiment analysis, clas
 # https://textblob.readthedocs.io/en/dev/
 
 ###--- GLOBAL VARIABLES ---###
-txt = "I havv good spelling."
+txt = "Ii havv goood sspelling."
 
 
 ###--- FUNCTIONS ---###
@@ -21,8 +20,13 @@ def correct_spelling():
      to attempt spelling correction.
     '''
     global txt
-    usable = TextBlob(txt)
-    return usable.correct()
+    usable_text = TextBlob(txt)
+
+    # for word in usable_text.split():
+    #     print(word.correct())
+
+    print(usable_text.correct())
+    # I have good spelling.
 
 
 def check_spelling():
@@ -37,5 +41,5 @@ def check_spelling():
 
 ###--- DRIVER CODE ---###
 if __name__ == "__main__":
-    # correct_spelling()
-    check_spelling()
+    correct_spelling()
+    # check_spelling()
