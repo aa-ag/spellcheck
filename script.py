@@ -10,17 +10,19 @@ such as part-of-speech tagging, noun phrase extraction, sentiment analysis, clas
 # https://textblob.readthedocs.io/en/dev/
 
 ###--- GLOBAL VARIABLES ---###
-txt = "Ii havv goood sspelling."
-
+misspellings = "Ii havv goood sspelling."
+typos = "My interests include: cooking dogs, shopping, dancing, reading, and watching movies."
 
 ###--- FUNCTIONS ---###
+
+
 def correct_spelling():
     '''
      Use the correct() method 
      to attempt spelling correction.
     '''
-    global txt
-    usable_text = TextBlob(txt)
+    global typos
+    usable_text = TextBlob(typos)
 
     # for word in usable_text.split():
     #     print(word.correct())
