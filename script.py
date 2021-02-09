@@ -9,8 +9,11 @@ such as part-of-speech tagging, noun phrase extraction, sentiment analysis, clas
 '''
 # https://textblob.readthedocs.io/en/dev/
 
+from spellchecker import SpellChecker
+
+
 ###--- GLOBAL VARIABLES ---###
-misspellings = "Ii havv goood sspelling."
+misspellings = "cmputr watr studdy wrte"
 typos = "My interests include: cooking dogs, shopping, dancing, reading, and watching movies."
 
 ###--- FUNCTIONS ---###
@@ -41,7 +44,17 @@ def check_spelling():
     # [('fallibility', 1.0)]
 
 
+def spell_checker_version():
+    global misspellings
+
+    spell = SpellChecker()
+
+    for word in misspellings.split():
+        print(spell.correction(word))
+
+
 ###--- DRIVER CODE ---###
 if __name__ == "__main__":
-    correct_spelling()
+    # correct_spelling()
     # check_spelling()
+    spell_checker_version()
