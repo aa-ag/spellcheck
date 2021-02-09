@@ -70,7 +70,9 @@ def aggregate_text():
 
     # parse html usig beautiful soup
         soup = BeautifulSoup(p, 'html.parser')
-        print(soup)
+
+        with open("jobs.html", "w", encoding='utf-8') as html:
+            html.write(str(soup))
 
 
 ###--- DRIVER CODE ---###
