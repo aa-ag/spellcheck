@@ -72,7 +72,8 @@ def aggregate_text():
         soup = BeautifulSoup(p, 'html.parser')
 
         with open("jobs.html", "w", encoding='utf-8') as html:
-            html.write(str(soup))
+            html.write(
+                str(soup.find("div", {"class": "page-body job-details"})))
 
 
 ###--- DRIVER CODE ---###
