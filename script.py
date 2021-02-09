@@ -10,10 +10,10 @@ such as part-of-speech tagging, noun phrase extraction, sentiment analysis, clas
 # https://textblob.readthedocs.io/en/dev/
 
 from spellchecker import SpellChecker
-
+# https://pyspellchecker.readthedocs.io/en/latest/
 
 ###--- GLOBAL VARIABLES ---###
-misspellings = "cmputr watr studdy wrte"
+misspellings = "something is hapenning here"
 typos = "My interests include: cooking dogs, shopping, dancing, reading, and watching movies."
 
 ###--- FUNCTIONS ---###
@@ -50,7 +50,10 @@ def spell_checker_version():
     spell = SpellChecker()
 
     for word in misspellings.split():
-        print(spell.correction(word))
+        # prints most likely word
+        # print(spell.correction(word))
+        # prints probable corrections
+        print(spell.candidates(word))
 
 
 ###--- DRIVER CODE ---###
