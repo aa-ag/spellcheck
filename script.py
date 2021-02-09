@@ -12,13 +12,18 @@ such as part-of-speech tagging, noun phrase extraction, sentiment analysis, clas
 from spellchecker import SpellChecker
 # https://pyspellchecker.readthedocs.io/en/latest/
 
+import urllib.request
+from bs4 import BeautifulSoup
+
+
 ###--- GLOBAL VARIABLES ---###
 misspellings = "something is hapenning here"
 typos = "My interests include: cooking dogs, shopping, dancing, reading, and watching movies."
 
+page = 'https://legacy.theresumator.com/apply/GiLc0mCVDv/Marketing-Sales-Operations-Associate'
+
+
 ###--- FUNCTIONS ---###
-
-
 def correct_spelling():
     '''
      Use the correct() method 
@@ -56,8 +61,21 @@ def spell_checker_version():
         print(spell.candidates(word))
 
 
+def aggregate_text():
+    # query website
+    global page
+    req = urllib.request.Request(page)
+    with urllib.request.urlopen(req) as response:
+        p = response.read()
+
+    # parse html usig beautiful soup
+        soup = BeautifulSoup(p, 'html.parser')
+        print(soup)
+
+
 ###--- DRIVER CODE ---###
 if __name__ == "__main__":
     # correct_spelling()
     # check_spelling()
-    spell_checker_version()
+    # spell_checker_version()
+    aggregate_text()
