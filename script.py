@@ -82,7 +82,7 @@ def clean_text():
         reader = html.read()
         actual_text = re.findall(r'\>(.*?)\<', reader)
         actual_text_minus_spaces = [
-            i for i in actual_text if i != '' and i != '\xa0']
+            i.replace('\xa0', '') for i in actual_text if i != '' and i != '\xa0']
         print(actual_text_minus_spaces)
 
 
