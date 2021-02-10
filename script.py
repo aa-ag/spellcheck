@@ -14,6 +14,7 @@ from spellchecker import SpellChecker
 
 import urllib.request
 from bs4 import BeautifulSoup
+import re
 
 
 ###--- GLOBAL VARIABLES ---###
@@ -76,9 +77,16 @@ def aggregate_text():
                 str(soup.find("div", {"class": "page-body job-details"})))
 
 
+def clean_text():
+    with open('jobs.html', 'r+') as html:
+        reader = html.read()
+        print(reader)
+
+
 ###--- DRIVER CODE ---###
 if __name__ == "__main__":
     # correct_spelling()
     # check_spelling()
     # spell_checker_version()
-    aggregate_text()
+    # aggregate_text()
+    clean_text()
