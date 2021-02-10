@@ -78,12 +78,16 @@ def aggregate_text():
 
 
 def clean_text():
+    spell = SpellChecker()
+
     with open('jobs.html', 'r+') as html:
         reader = html.read()
         actual_text = re.findall(r'\>(.*?)\<', reader)
-        actual_text_minus_spaces = [
+        actual_clean_text = [
             i.replace('\xa0', '') for i in actual_text if i != '' and i != '\xa0']
-        print(actual_text_minus_spaces)
+
+        for clean_word in actual_clean_text:
+            print(spell.correction(clean_word))
 
 
 ###--- DRIVER CODE ---###
