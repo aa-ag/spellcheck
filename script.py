@@ -74,13 +74,15 @@ def aggregate_text():
 
         with open("jobs.html", "w", encoding='utf-8') as html:
             html.write(
-                str(soup.find("div", {"class": "page-body job-details"})))
+                str(soup.find("div", {"class": "description"})))
 
 
 def clean_text():
     with open('jobs.html', 'r+') as html:
         reader = html.read()
-        print(reader)
+        actual_text = re.findall(r'\>(.*?)\<', reader)
+        actual_text_minus_spaces = [i for i in actual_text if i != '']
+        print(actual_text_minus_spaces)
 
 
 ###--- DRIVER CODE ---###
