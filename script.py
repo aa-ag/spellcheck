@@ -81,7 +81,8 @@ def clean_text():
     with open('jobs.html', 'r+') as html:
         reader = html.read()
         actual_text = re.findall(r'\>(.*?)\<', reader)
-        actual_text_minus_spaces = [i for i in actual_text if i != '']
+        actual_text_minus_spaces = [
+            i for i in actual_text if i != '' and i != '\xa0']
         print(actual_text_minus_spaces)
 
 
